@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Discord Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1 class="logo">⚡ Mini Discord</h1>
+
+      <div class="user-card">
+        <div class="avatar-circle" id="avatarCircle">U</div>
+        <div>
+          <div class="user-name" id="usernameDisplay">User</div>
+          <div class="user-status">Online</div>
+        </div>
+      </div>
+
+      <div class="room-form">
+        <h2>Room</h2>
+        <input id="roomName" placeholder="Room name" />
+
+        <input
+         id="usernameInput"
+         placeholder="Your username"
+         autocomplete="off"
+         />
+
+        <input
+          id="roomPassword"
+          type="password"
+          placeholder="Room password"
+        />
+        <button id="joinBtn">Join room</button>
+        <p class="room-info" id="roomInfo">Not in any room</p>
+        <p class="error-text" id="errorText"></p>
+      </div>
+
+      <div class="users-panel">
+        <h3>Users</h3>
+        <ul id="usersList"></ul>
+        <p class="hint-text">Admin can kick users.</p>
+      </div>
+    </aside>
+
+    <main class="chat-panel">
+      <header class="chat-header">
+        <div>
+          <h2 id="roomTitle">Welcome 👋</h2>
+          <p class="chat-subtitle">
+            Roles, file sharing, reactions, edit & search.
+          </p>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <input id="searchInput" placeholder="Search messages..." />
+          </div>
+          <div id="mentionBadge" class="mention-badge" style="display:none;">
+            @
+          </div>
+        </div>
+      </header>
+
+      <div id="chatBox" class="chat-box"></div>
+      <div id="typingBox" class="typing-indicator"></div>
+
+      <div class="input-area">
+        <input
+          id="messageInput"
+          placeholder="Type a message and hit Enter... (use @username)"
+        />
+        <input type="file" id="fileInput" class="file-input" />
+        <button id="sendFileBtn">📎</button>
+        <button id="sendBtn">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
